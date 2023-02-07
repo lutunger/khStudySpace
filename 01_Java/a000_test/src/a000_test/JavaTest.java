@@ -1,4 +1,4 @@
-package a01_test;
+package a000_test;
 
 //주석 : 설명을 작성하는 부분 (컴파일러가 해석 X)
 // 한 줄 주석
