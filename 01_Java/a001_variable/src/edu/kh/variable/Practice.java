@@ -65,7 +65,7 @@ public class Practice {
 		// KLMN....
 		
 		
-		//주석 주석~ commit test
+		
 	}
 
 }
