@@ -64,6 +64,8 @@ public class Practice {
 		// ABCDEFGHIJ
 		// KLMN....
 		
+		
+		//주석 주석~ commit test
 	}
 
 }
