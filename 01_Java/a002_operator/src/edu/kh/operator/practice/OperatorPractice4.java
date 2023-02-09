@@ -37,9 +37,8 @@ public class OperatorPractice4 {
 							scoreAverage,
 							sucsessCheck
 							);
-							
-								
-				
+		
+		
 		
 		
 	}

@@ -14,18 +14,20 @@ public class OperatorPractice1 {
 		
 //		사탕 개수 체크 => 입력받음
 		System.out.print("사탕 개수 : ");
-		int lolipopNumbers = sc.nextInt();
+		int lollipopNumbers = sc.nextInt();
 		
 //		1인당 사탕 개수에 대한 변수
-		int lolipopDivideEqual = lolipopNumbers / membersNumber ;
+		int lollipopDivideEqual = lollipopNumbers / membersNumber ;
 //		남은 사탕 개수에 대한 변수
-		int restOfLolipops = lolipopNumbers % membersNumber;
+		int restOfLollipops = lollipopNumbers % membersNumber;
+		
+		System.out.println();
 		
 //		output
 //		1인당 사탕 개수를 출력
-		System.out.println("1인당 사탕 개수 : " + lolipopDivideEqual);
+		System.out.println("1인당 사탕 개수 : " + lollipopDivideEqual);
 //		남은 사탕 개수를 출력
-		System.out.println("남는 사탕 개수 :" + restOfLolipops );
+		System.out.println("남는 사탕 개수 :" + restOfLollipops );
 		
 		
 		
