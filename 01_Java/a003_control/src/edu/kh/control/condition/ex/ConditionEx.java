@@ -199,31 +199,90 @@ public class ConditionEx {
 		double height = sc.nextDouble();
 		
 		String result;
-		
-		if ( age < 0 || age > 100) {
-			result = "잘못 입력하셨습니다.";
-		} else if ( age < 12 ) {
+
+		// 1) 단순 버전 (잘못 입력 하셨습니다 출력 안됨...)
+		/*if(age >= 12 && height >= 140.0) {
+			result = "탑승 가능";
+		} else if(age < 12) {
 			result = "적정 연령이 아닙니다.";
-		} else if ( height < 140) {
+		} else if(height < 140.0) {
 			result = "적정 키가 아닙니다.";
+		} else {
+			result = "잘못 입력하셨습니다.";
+		} */
+
+		
+		// 2) 효율 + 모두 만족
+		if(age < 0 || age > 100) {
+			result = "잘못 입력하셨습니다";
+			
+		} else if(age < 12) {
+			result = "적정 연령이 아닙니다.";
+			
+		} else if(height < 140.0) {
+			result = "적정 키가 아닙니다.";
+			
 		} else {
 			result = "탑승 가능";
 		}
+ 		
+		// 내가 작성한 코드
+//		if ( age < 0 || age > 100) {
+//			result = "잘못 입력하셨습니다.";
+//		} else if ( age < 12 ) {
+//			result = "적정 연령이 아닙니다.";
+//		} else if ( height < 140) {
+//			result = "적정 키가 아닙니다.";
+//		} else {
+//			result = "탑승 가능";
+//		}
+//		
+		System.out.println(result);
+	}
+	
+	
+	
+	
+	
+	/// 예제 6번 업그레이드
+	public void ex7() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("나이 입력 : ");
+		int age = sc.nextInt();
+		
+		String result;
+		
+		// 나이를 입력 받자마자 검사
+		if(age < 0 || age > 100) {
+			result = "잘못 입력 하셨습니다.";
+			
+		} else if(age < 12) {
+			result = "적정 연령이 아닙니다.";
+			
+		} else {
+			// else 내부에서는 age가 정상 입력으로 판단됨
+			
+			System.out.print("키 입력 : ");
+			double height = sc.nextDouble();
+			
+			if(height < 100 || height > 220) {
+				result = "잘못 입력하셨습니다.";
+				
+			} else if(height < 140.0) { 
+				result = "적정 키가 아닙니다.";
+				
+			} else {
+				result = "탑승 가능";
+			}
+			
+		} // age else 끝
 		
 		System.out.println(result);
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
 	
 	
 	
