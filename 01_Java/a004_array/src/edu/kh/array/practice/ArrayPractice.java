@@ -310,8 +310,21 @@ public class ArrayPractice {
 	public void practice11() {
 
 		int[] arr = new int[10];
+		
+		boolean check = false;
+		
+		for (int i = 0; i < arr.length; i++) {
 
-
+			arr[i] = (int) ((Math.random() * 9) + 1);
+			
+			while(!check) {
+				for(int j = 0 ;  j < arr.length; j++) {
+					
+				}
+			}
+			
+		}
+		
 
 
 
