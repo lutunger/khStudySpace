@@ -884,8 +884,7 @@ public class ArrayPractice {
 						break;
 					}
 
-				
-					}
+				}
 				if (isSearch) {
 					break;
 				}
@@ -908,8 +907,7 @@ public class ArrayPractice {
 						break;
 					}
 
-					
-					}
+				}
 				if (isSearch) {
 					break;
 				}
@@ -917,63 +915,130 @@ public class ArrayPractice {
 			}
 
 		}
-		
-		System.out.printf("검색하신 %s 학생은 %d분단 %d번째 줄 %s에 있습니다.",
-							searchFor,
-							section,
-							row,
-							side
-							);
+
+		System.out.printf("검색하신 %s 학생은 %d분단 %d번째 줄 %s에 있습니다.", searchFor, section, row, side);
 
 	}
-	
-	
-	
-	
+
 	public void practice23() {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		String[][] arr = new String[6][6];
-		
+
 		System.out.print("행 인덱스 입력 : ");
 		int rowIndex = sc.nextInt();
-		
+
 		System.out.print("열 인덱스 입력 : ");
 		int columnIndex = sc.nextInt();
-		
-		for(int row = 0; row < arr.length ; row++) {
-			
-			for(int column = 0; column < arr[row].length ; column++) {
-				if(row == 0 && column ==0) {
+
+		for (int row = 0; row < arr.length; row++) {
+
+			for (int column = 0; column < arr[row].length; column++) {
+				if (row == 0 && column == 0) {
 					arr[row][column] = " ";
-					System.out.printf("%2s", arr[row][column] );
-				}else if(row == 0) {
+					System.out.printf("%2s", arr[row][column]);
+				} else if (row == 0) {
 					arr[row][column] = String.format("%d", (column - 1));
-					System.out.printf("%2s", arr[row][column] );
-				}else if(column == 0) {
+					System.out.printf("%2s", arr[row][column]);
+				} else if (column == 0) {
 					arr[row][column] = String.format("%d", (row - 1));
-					System.out.printf("%2s", arr[row][column] );
-				}else if((row == rowIndex + 1) && (column == columnIndex + 1)) {
+					System.out.printf("%2s", arr[row][column]);
+				} else if ((row == rowIndex + 1) && (column == columnIndex + 1)) {
 					arr[row][column] = "X";
-					System.out.printf("%2s", arr[row][column] );
-				}else {
+					System.out.printf("%2s", arr[row][column]);
+				} else {
 					arr[row][column] = " ";
-					System.out.printf("%2s", arr[row][column] );
+					System.out.printf("%2s", arr[row][column]);
 				}
-				
+
 			}
-			
-			
+			System.out.println();
+
 		}
-		
-		
-		
+	}
+
+	public void practice24() {
+
+		Scanner sc = new Scanner(System.in);
+
+		String[][] arr = new String[6][6];
+
+		for (int row = 0; row < arr.length; row++) {
+			for (int column = 0; column < arr[row].length; column++) {
+				if (row == 0 && column == 0) {
+					arr[row][column] = " ";
+				} else if (row == 0) {
+					arr[row][column] = String.format("%d", (column - 1));
+				} else if (column == 0) {
+					arr[row][column] = String.format("%d", (row - 1));
+				} else {
+					arr[row][column] = " ";
+				}
+			}
+		}
+
+		int rowIndex = -1;
+
+		int columnIndex = -1;
+
+		boolean isEnd = false;
+
+		while (!isEnd) {
+
+			System.out.print("행 인덱스 입력 : ");
+			rowIndex = sc.nextInt();
+
+			if (rowIndex == 99) {
+				System.out.println("프로그램 종료");
+				break;
+			}
+
+			System.out.print("열 인덱스 입력 : ");
+			columnIndex = sc.nextInt();
+
+			for (int row = 0; row < arr.length; row++) {
+
+				for (int column = 0; column < arr[row].length; column++) {
+					if (row == 0 && column == 0) {
+						System.out.printf("%2s", arr[row][column]);
+					} else if (row == 0) {
+						System.out.printf("%2s", arr[row][column]);
+					} else if (column == 0) {
+						System.out.printf("%2s", arr[row][column]);
+					} else if ((row == rowIndex + 1) && (column == columnIndex + 1)) {
+						arr[row][column] = "X";
+						System.out.printf("%2s", arr[row][column]);
+					} else {
+						System.out.printf("%2s", arr[row][column]);
+					}
+
+				}
+				System.out.println();
+
+			}
+
+		}
+	}
+	
+	
+	
+	public void bingoGame() {
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }
+
+
 
 
 
