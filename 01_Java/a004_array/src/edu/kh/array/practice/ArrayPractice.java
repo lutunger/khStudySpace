@@ -310,27 +310,189 @@ public class ArrayPractice {
 	public void practice11() {
 
 		int[] arr = new int[10];
-		
-		boolean check = false;
-		
-		for (int i = 0; i < arr.length; i++) {
 
-			arr[i] = (int) ((Math.random() * 9) + 1);
-			
-			while(!check) {
-				for(int j = 0 ;  j < arr.length; j++) {
-					
+		int[] pickArr = new int[10];
+
+		for (int i = 0; i < pickArr.length; i++) {
+
+			pickArr[i] = i + 1;
+
+		}
+
+		int randomNumber = 0;
+
+		int checkSum = 0;
+
+		boolean check = false;
+
+		while (!check) {
+			randomNumber = (int) ((Math.random() * 10));
+
+			if (pickArr[randomNumber] == 0) {
+				continue;
+			}
+
+			for (int i = 0; i < arr.length; i++) {
+				if (arr[i] == 0) {
+					arr[i] = pickArr[randomNumber];
+					pickArr[randomNumber] = 0;
+					break;
 				}
 			}
-			
+
+			for (int i = 0; i < arr.length; i++) {
+				checkSum += pickArr[i];
+			}
+
+			if (checkSum == 0) {
+				check = true;
+			} else {
+				checkSum = 0;
+			}
+
 		}
-		
 
-
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
 
 	}
 
+	public void practice12() {
+		// 1~45
+		int[] arr = new int[6];
+
+		int[] pickArr = new int[45];
+
+		for (int i = 0; i < pickArr.length; i++) {
+
+			pickArr[i] = i + 1;
+
+		}
+
+		int randomNumber = 0;
+
+		int checkCounter = 0;
+
+		boolean check = false;
+
+		while (!check) {
+			randomNumber = (int) ((Math.random() * 45));
+
+			if (pickArr[randomNumber] == 0) {
+				continue;
+			}
+
+			for (int i = 0; i < arr.length; i++) {
+				if (arr[i] == 0) {
+					arr[i] = pickArr[randomNumber];
+					pickArr[randomNumber] = 0;
+					break;
+				}
+			}
+
+			for (int i = 0; i < arr.length; i++) {
+				if (arr[i] != 0) {
+					checkCounter++;
+				}
+			}
+
+			if (checkCounter == 6) {
+				check = true;
+			} else {
+				checkCounter = 0;
+			}
+
+		}
+		// -> 여기까지가 중복없이 뽑기 arr에 저장
+
+		// 아래부터가 sort 하기
+
+		int[] sortedArr = new int[6];
+
+		int sortIndex = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					sortIndex++;
+				}
+			}
+
+			sortedArr[sortIndex] = arr[i];
+
+			sortIndex = 0;
+		}
+
+		for (int i = 0; i < sortedArr.length; i++) {
+			System.out.print(sortedArr[i] + " ");
+
+		}
+
+	}
+
+	public void practice13() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("문자열 : ");
+		String inputString = sc.next();
+
+		char[] arr = new char[inputString.length()];
+
+		for (int i = 0; i < inputString.length(); i++) {
+
+			arr[i] = inputString.charAt(i);
+
+		}
+
+		char[] sortToZero = new char[arr.length];
+		
+		for (int i = 0; i < arr.length; i++) {
+
+			sortToZero[i] = arr[i];
+			
+			for (int j = 0; j < sortToZero.length; j++) {
+				if (i != j) {
+					if (sortToZero[i] == sortToZero[j]) {
+						sortToZero[i] = 0;
+					}
+				}
+			}
+
+		}
+		
+		int countChar = sortToZero.length;
+		
+		System.out.print("문자열에 있는 문자 : ");
+		for (int i = 0; i < sortToZero.length ; i ++) {
+			if(sortToZero[i] == 0) {
+				countChar--;
+				continue;
+			}
+			System.out.print(sortToZero[i] + " ");
+			
+		}
+		
+		System.out.println();
+		
+		System.out.println("문자 개수 : " + countChar);
+		
+
+	}
+
+	
+	public void practice14() {
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 }
-
-
-
