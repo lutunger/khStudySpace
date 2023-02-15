@@ -448,11 +448,11 @@ public class ArrayPractice {
 		}
 
 		char[] sortToZero = new char[arr.length];
-		
+
 		for (int i = 0; i < arr.length; i++) {
 
 			sortToZero[i] = arr[i];
-			
+
 			for (int j = 0; j < sortToZero.length; j++) {
 				if (i != j) {
 					if (sortToZero[i] == sortToZero[j]) {
@@ -462,37 +462,469 @@ public class ArrayPractice {
 			}
 
 		}
-		
+
 		int countChar = sortToZero.length;
-		
+
 		System.out.print("문자열에 있는 문자 : ");
-		for (int i = 0; i < sortToZero.length ; i ++) {
-			if(sortToZero[i] == 0) {
+		for (int i = 0; i < sortToZero.length; i++) {
+			if (sortToZero[i] == 0) {
 				countChar--;
 				continue;
 			}
 			System.out.print(sortToZero[i] + " ");
-			
+
+		}
+
+		System.out.println();
+
+		System.out.println("문자 개수 : " + countChar);
+
+	}
+
+	public void practice14() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int askSize = sc.nextInt();
+
+		String[] originArr = new String[askSize];
+
+		sc.nextLine();
+
+		int index = 1;
+
+		for (int i = 0; i < originArr.length; i++) {
+			System.out.printf("%d번째 문자열 : ", (i + 1));
+			originArr[i] = sc.nextLine();
+			index++;
+		}
+
+		boolean addChecker = false;
+
+		char yesOrNo = ' ';
+
+		int sizeSum = askSize;
+
+		int wannaAddNumber = 0;
+
+		while (!addChecker) {
+
+			System.out.print("더 값을 입력하시겠습니까?(Y/N)");
+			yesOrNo = sc.next().charAt(0);
+
+			if (yesOrNo == 'y') {
+
+				System.out.print("더 입력하고 싶은 개수 : ");
+
+				wannaAddNumber = sc.nextInt();
+
+				sizeSum += wannaAddNumber;
+
+				sc.nextLine();
+
+				String[] resultArr = new String[sizeSum];
+
+				for (int i = 0; i < originArr.length; i++) {
+
+					resultArr[i] = originArr[i];
+
+				}
+
+				for (int i = 0; i < wannaAddNumber; i++) {
+
+					System.out.printf("%d번째 문자열 : ", index);
+
+					resultArr[index - 1] = sc.nextLine();
+
+					index++;
+
+				}
+
+				originArr = resultArr;
+
+			} else if (yesOrNo == 'n') {
+
+				break;
+
+			} else {
+				continue;
+			}
+			continue;
+		}
+
+		for (int i = 0; i < originArr.length; i++) {
+
+			if (i == 0) {
+				System.out.printf("[%s, ", originArr[i]);
+			} else if (i == originArr.length - 1) {
+				System.out.printf("%s]", originArr[i]);
+			} else {
+				System.out.printf("%s, ", originArr[i]);
+			}
+
+		}
+
+	}
+
+	public void practice15() {
+
+		String[][] arr = new String[3][3];
+
+		Scanner sc = new Scanner(System.in);
+
+		String value = " ";
+
+		for (int row = 0; row < arr.length; row++) {
+
+			for (int column = 0; column < arr[row].length; column++) {
+
+				value = String.format("(%d, %d)", row, column);
+
+				arr[row][column] = value;
+
+				System.out.print(arr[row][column]);
+
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice16() {
+
+		int[][] arr = new int[4][4];
+
+		int count = 1;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr[i].length; j++) {
+
+				arr[i][j] = count;
+
+				count++;
+
+				System.out.printf("%3d", arr[i][j]);
+
+			}
+
+			System.out.println();
+		}
+
+	}
+
+	public void practice17() {
+
+		int[][] arr = new int[4][4];
+
+		int count = 16;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr[i].length; j++) {
+
+				arr[i][j] = count;
+
+				count--;
+
+				System.out.printf("%3d", arr[i][j]);
+
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice18() {
+
+		int[][] arr = new int[4][4];
+
+		int rowSum = 0;
+
+		for (int i = 0; i < arr.length - 1; i++) {
+
+			for (int j = 0; j < arr[i].length; j++) {
+
+				if (j == arr[i].length - 1) {
+					arr[i][j] = rowSum;
+					rowSum = 0;
+				} else {
+					arr[i][j] = (int) ((Math.random() * 10) + 1);
+					rowSum += arr[i][j];
+				}
+
+			}
+
+		}
+
+		for (int lastColumn = 0; lastColumn < arr.length; lastColumn++) {
+
+			for (int referenceData = 0; referenceData < arr.length - 1; referenceData++) {
+
+				arr[arr.length - 1][lastColumn] += arr[referenceData][lastColumn];
+
+			}
+
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr[i].length; j++) {
+
+				System.out.printf("%3d", arr[i][j]);
+
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice19() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("행 크기 : ");
+		int rowSize = sc.nextInt();
+
+		while (!(rowSize >= 1 && rowSize <= 10)) {
+
+			System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+
+			System.out.print("행 크기 : ");
+			rowSize = sc.nextInt();
+
+		}
+
+		System.out.print("열 크기 : ");
+		int columnSize = sc.nextInt();
+
+		while (!(columnSize >= 1 && columnSize <= 10)) {
+
+			System.out.println("반드시 1~10 사이의 정수를 입력해야 합니다.");
+
+			System.out.print("행 크기 : ");
+			columnSize = sc.nextInt();
+
+		}
+
+		char[][] arr = new char[rowSize][columnSize];
+
+		char ch = ' ';
+
+		for (int i = 0; i < arr.length; i++) {
+
+			for (int j = 0; j < arr[i].length; j++) {
+				ch = (char) ((int) ((Math.random() * 26) + 65));
+				arr[i][j] = ch;
+
+				System.out.printf("%2c", arr[i][j]);
+
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice20() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("행의 크기 : ");
+		int rowSize = sc.nextInt();
+
+		char ch = 'a';
+
+		char[][] arr = new char[rowSize][];
+
+		int[] sizeStoreOfRow = new int[rowSize];
+
+		for (int i = 0; i < arr.length; i++) {
+
+			System.out.printf("%d열의 크기 : ", i);
+			sizeStoreOfRow[i] = sc.nextInt();
+
+			arr[i] = new char[sizeStoreOfRow[i]];
+
+		}
+
+		for (int row = 0; row < arr.length; row++) {
+
+			for (int column = 0; column < arr[row].length; column++) {
+
+				arr[row][column] = ch;
+				ch++;
+
+				System.out.printf("%2c", arr[row][column]);
+			}
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice21() {
+
+		String[] students = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+
+		int index = 0;
+
+		String[][] arr1 = new String[3][2];
+
+		String[][] arr2 = new String[3][2];
+
+		System.out.println("== 1분단 ==");
+
+		for (int i = 0; i < arr1.length; i++) {
+
+			for (int j = 0; j < arr1[i].length; j++) {
+
+				arr1[i][j] = students[index];
+				index++;
+				System.out.printf("%s  ", arr1[i][j]);
+			}
+
+			System.out.println();
+
+		}
+
+		System.out.println("== 2분단 ==");
+
+		for (int i = 0; i < arr2.length; i++) {
+
+			for (int j = 0; j < arr2[i].length; j++) {
+
+				arr2[i][j] = students[index];
+				index++;
+				System.out.printf("%s  ", arr2[i][j]);
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+	public void practice22() {
+
+		Scanner sc = new Scanner(System.in);
+
+		String[] students = { "강건강", "남나나", "도대담", "류라라", "문미미", "박보배", "송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하" };
+
+		int index = 0;
+
+		String[][] arr1 = new String[3][2];
+
+		String[][] arr2 = new String[3][2];
+
+		System.out.println("== 1분단 ==");
+
+		for (int i = 0; i < arr1.length; i++) {
+
+			for (int j = 0; j < arr1[i].length; j++) {
+
+				arr1[i][j] = students[index];
+				index++;
+				System.out.printf("%s  ", arr1[i][j]);
+			}
+
+			System.out.println();
+
+		}
+
+		System.out.println("== 2분단 ==");
+
+		for (int i = 0; i < arr2.length; i++) {
+
+			for (int j = 0; j < arr2[i].length; j++) {
+
+				arr2[i][j] = students[index];
+				index++;
+				System.out.printf("%s  ", arr2[i][j]);
+			}
+
+			System.out.println();
+
+		}
+
+		System.out.println("=============================");
+
+		System.out.print("검색할 학생 이름을 입력하세요 : ");
+		String searchFor = sc.next();
+
+		boolean isSearch = false;
+
+		int section = 0;
+		int row = 0;
+		String side = " ";
+
+		while (!isSearch) {
+
+			for (int i = 0; i < arr1.length; i++) {
+
+				for (int j = 0; j < arr1[i].length; j++) {
+
+					if (searchFor.equals(arr1[i][j])) {
+						section = 1;
+						row = i + 1;
+						if (j == 0) {
+							side = "왼쪽";
+						} else {
+							side = "오른쪽";
+						}
+						isSearch = true;
+						break;
+					}
+
+				
+					}
+				if (isSearch) {
+					break;
+				}
+
+			}
+
+			for (int i = 0; i < arr2.length; i++) {
+
+				for (int j = 0; j < arr2[i].length; j++) {
+
+					if (searchFor.equals(arr2[i][j])) {
+						section = 2;
+						row = i + 1;
+						if (j == 0) {
+							side = "왼쪽";
+						} else {
+							side = "오른쪽";
+						}
+						isSearch = true;
+						break;
+					}
+
+					
+					}
+				if (isSearch) {
+					break;
+				}
+
+			}
+
 		}
 		
-		System.out.println();
-		
-		System.out.println("문자 개수 : " + countChar);
-		
+		System.out.printf("검색하신 %s 학생은 %d분단 %d번째 줄 %s에 있습니다.",
+							searchFor,
+							section,
+							row,
+							side
+							);
 
 	}
 
-	
-	public void practice14() {
-		
-		
-		
-		
-		
-	}
-	
-	
-	
-	
-	
 }
