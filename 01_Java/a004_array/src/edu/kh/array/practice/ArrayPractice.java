@@ -944,21 +944,21 @@ public class ArrayPractice {
 		
 		for(int row = 0; row < arr.length ; row++) {
 			
-			for(int column = 0; column < arr[i].length ; column++) {
+			for(int column = 0; column < arr[row].length ; column++) {
 				if(row == 0 && column ==0) {
-					arr[row][column] = " "
+					arr[row][column] = " ";
 					System.out.printf("%2s", arr[row][column] );
 				}else if(row == 0) {
-					arr[row][column] = column - 1;
+					arr[row][column] = String.format("%d", (column - 1));
 					System.out.printf("%2s", arr[row][column] );
 				}else if(column == 0) {
-					arr[row][column] = row - 1;
+					arr[row][column] = String.format("%d", (row - 1));
 					System.out.printf("%2s", arr[row][column] );
 				}else if((row == rowIndex + 1) && (column == columnIndex + 1)) {
-					arr[row][column] = "X"
+					arr[row][column] = "X";
 					System.out.printf("%2s", arr[row][column] );
 				}else {
-					arr[row][column] = " "
+					arr[row][column] = " ";
 					System.out.printf("%2s", arr[row][column] );
 				}
 				
