@@ -932,6 +932,42 @@ public class ArrayPractice {
 	
 	public void practice23() {
 		
+		Scanner sc = new Scanner(System.in);
+		
+		String[][] arr = new String[6][6];
+		
+		System.out.print("행 인덱스 입력 : ");
+		int rowIndex = sc.nextInt();
+		
+		System.out.print("열 인덱스 입력 : ");
+		int columnIndex = sc.nextInt();
+		
+		for(int row = 0; row < arr.length ; row++) {
+			
+			for(int column = 0; column < arr[i].length ; column++) {
+				if(row == 0 && column ==0) {
+					arr[row][column] = " "
+					System.out.printf("%2s", arr[row][column] );
+				}else if(row == 0) {
+					arr[row][column] = column - 1;
+					System.out.printf("%2s", arr[row][column] );
+				}else if(column == 0) {
+					arr[row][column] = row - 1;
+					System.out.printf("%2s", arr[row][column] );
+				}else if((row == rowIndex + 1) && (column == columnIndex + 1)) {
+					arr[row][column] = "X"
+					System.out.printf("%2s", arr[row][column] );
+				}else {
+					arr[row][column] = " "
+					System.out.printf("%2s", arr[row][column] );
+				}
+				
+			}
+			
+			
+		}
+		
+		
 		
 		
 	}
