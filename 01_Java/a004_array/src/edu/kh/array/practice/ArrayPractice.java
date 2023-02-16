@@ -1144,9 +1144,6 @@ public class ArrayPractice {
 				
 			}
 			
-			System.out.println(Arrays.toString(bingoCheckerOfRow));
-			System.out.println(Arrays.toString(bingoCheckerOfColumn));
-			System.out.println(Arrays.toString(bingoCheckerOfDiagonal));
 			
 
 			for(int i = 0; i < bingoCheckerOfRow.length ; i++) {
