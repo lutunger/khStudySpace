@@ -1,5 +1,6 @@
 package edu.kh.array.practice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -1020,31 +1021,176 @@ public class ArrayPractice {
 
 		}
 	}
-	
-	
-	
+
 	public void bingoGame() {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("빙고판 크기 지정 : ");
+		int size = sc.nextInt();
+
+		String[][] arr = new String[size][size];
+
+		String[] numberGroup = new String[size * size];
+		for (int i = 0; i < numberGroup.length; i++) {
+			numberGroup[i] = String.format("%d", i + 1);
+		}
+
+		for (int row = 0; row < arr.length; row++) {
+
+			for (int column = 0; column < arr[row].length; column++) {
+
+				if (arr[row][column] == null) {
+
+					int random = (int) (Math.random() * numberGroup.length);
+
+					if (numberGroup[random] != "0") {
+
+						arr[row][column] = numberGroup[random];
+
+						numberGroup[random] = "0";
+
+						System.out.printf("%4s", arr[row][column]);
+
+					} else {
+
+						column -= 1;
+
+					}
+
+				}
+
+			}
+			System.out.println();
+		}
+
+		System.out.println("===============빙고게임 시작===============");
+
+		String searchValue = " ";
+
+		boolean bingo = false;
+
+		int[] bingoCheckerOfRow = new int[arr.length];
+		int[] bingoCheckerOfColumn = new int[arr[0].length] ;
+		int[] bingoCheckerOfDiagonal = new int[2];
+		int bingoCounter = 0;
+		// diagonal[0]은 arr[i][j]가 i++,j++로 되는 대각선, 
+		// diagonal[1]은 arr[i][j]가 i--,j--로 되는 대각선
+		
+		boolean valueChecker = false;
+		
+		while (!bingo) {
+
+			System.out.print("정수를 입력하시오 : ");
+
+			searchValue = sc.next();
+			
+			while(!valueChecker) {
+				
+				
+				for(int row = 0; row <arr.length; row++) {
+					for(int column = 0; column <arr[row].length; column++) {
+						if(arr[row][column].equals(searchValue)) {
+							valueChecker = true;
+							
+						}
+					}
+					
+				}
+				
+				if(!valueChecker) {
+					System.out.print("다시 입력해주세요 : ");
+
+					searchValue = sc.next();
+					
+				}
+				
+			}
+			valueChecker = false;
+	
+			for (int row = 0; row < arr.length; row++) {
+
+				for (int column = 0; column < arr[row].length; column++) {
+
+					if (arr[row][column].equals(searchValue)) {
+
+						arr[row][column] = "★";
+						
+						bingoCheckerOfRow[row]++; 
+						bingoCheckerOfColumn[column]++;
+						
+						if(row == column) {
+							bingoCheckerOfDiagonal[0]++;
+						}
+						
+						if(arr[row].length - 1 == row + column) {
+							bingoCheckerOfDiagonal[1]++;
+						}
+						
+
+						System.out.printf("%4s", arr[row][column]);
+						
+						
+
+					} else {
+
+						System.out.printf("%4s", arr[row][column]);
+
+					}
+
+				}
+
+				System.out.println();
+				
+			}
+			
+			System.out.println(Arrays.toString(bingoCheckerOfRow));
+			System.out.println(Arrays.toString(bingoCheckerOfColumn));
+			System.out.println(Arrays.toString(bingoCheckerOfDiagonal));
+			
+
+			for(int i = 0; i < bingoCheckerOfRow.length ; i++) {
+				
+				if(bingoCheckerOfRow[i] == arr.length) {
+					bingoCounter++;
+				}
+				
+			}
+			
+			for(int i = 0; i < bingoCheckerOfColumn.length ; i++) {
+				
+				if(bingoCheckerOfColumn[i] == arr[i].length) {
+					bingoCounter++;
+				}
+				
+			}
+			
+			for(int i = 0; i < bingoCheckerOfDiagonal.length ; i++) {
+				
+				if(bingoCheckerOfDiagonal[i] == arr.length) {
+					bingoCounter++;
+				}
+				
+			}
+			
+			if(bingoCounter >= 3) {
+				bingo = true;
+			}
+			
+			
+			
+			System.out.printf("현재 %d 빙고", bingoCounter);
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			bingoCounter = 0;
+		}
+
+		System.out.println("***** BINGO!!! *****");
 		
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-
 }
-
-
-
-
-
-
-
-
-
-
-
