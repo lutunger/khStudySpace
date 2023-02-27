@@ -143,7 +143,7 @@ public class CarService {
 		for(Car c : carList) {
 //			printCar(Car객체 주소 또는 Car를 상속 받은 객체 주소);
 			printCar(c);
-		}
+		}	
 		
 		//printCar(new Truck());
 		
