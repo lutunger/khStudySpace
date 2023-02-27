@@ -1,6 +1,7 @@
 package edu.kh.collection.list.view;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import edu.kh.collection.list.dto.Student;
@@ -39,9 +40,9 @@ public class StudentView {
 				
 				switch(input) {
 				case 1 : addStudent(); break;
-				case 2 : break;
-				case 3 : break;
-				case 4 : break;
+				case 2 : selectAll(); break;
+				case 3 : updateStudent(); break;
+				case 4 : removeStudent(); break;
 				case 5 : break;
 				case 6 : break;
 				case 7 : break;
@@ -63,12 +64,74 @@ public class StudentView {
 		
 	}
 	
-	
+
 	/**
 	 * 학생 추가하기
 	 */
 	private void addStudent() {
 		System.out.println("\n--- 학생 정보 추가---\n");
+		
+		// 학생 정보 입력 메서드 호출 후 결과 반환 받기
+		Student std = inputStudent();
+		
+		if(service.addStudent(std)) {
+			System.out.println("[학생 정보가 추가되었습니다.]");
+		}
+		
+	}
+	
+	
+	/**
+	 * 전체 학생 조회
+	 */
+	private void selectAll() {
+		System.out.println("\n--- 전체 학생 조회 ---\n");
+		
+		List<Student> list = service.selectAll();
+		
+		// 향상된 for문
+		for(Student s : list) {
+//			System.out.println(s.toString());
+			System.out.println(s);
+			
+			// print 관련 메서드에서
+			// 참조변수를 출력하고자 매개변수로 전달하면
+			// 자동으로 .toString()을 붙여서 호출 (컴파일러)
+			
+		}
+		
+	}
+	
+	
+
+	/**
+	 * 학생 정보 수정
+	 */
+	private void updateStudent() {
+		System.out.println("\n--- 학생 정보 수정 ---\n");
+		
+		System.out.println("<수정할 학생 정보 입력>");
+		
+		// 학생 정보 입력 메서드 호출 후 결과 반환 받기
+		Student std = inputStudent();
+		
+		System.out.println("----------------------------");
+		System.out.print("수정할 학생의 index : ");
+		int index = sc.nextInt();
+		
+		
+		Student s = service.updateStudent(index, std);
+		// s == 수정되기 전 학생 정보가 반환됨
+		
+		System.out.println(s.getName() + "의 정보가 수정되었습니다.");
+		
+	}
+	
+	
+	/** 학생 전체 정보를 입력 받아 Student 객체로 반환하는 메서드
+	 * @return std:Student
+	 */
+	private Student inputStudent() {
 		
 		System.out.print("이름 : ");
 		String name = sc.nextLine();
@@ -97,12 +160,49 @@ public class StudentView {
 		Student std = new Student(name, grade, classRoom, number,
 									address, gender, score);
 		
-		if(service.addStudent(std)) {
-			System.out.println("[학생 정보가 추가되었습니다.]");
-		}
-		
+		return std;
 	}
 	
+
+	
+	
+	
+	/**
+	 * 학생 정보 삭제
+	 */
+	private void removeStudent() {
+		System.out.println("\n--- 학생 정보 제거 ---\n");
+		System.out.print("삭제할 학생의 인덱스 입력 : ");
+		int index = sc.nextInt();
+		
+		// 제거되기 전 학생 정보가 반환됨
+		Student s = service.removeStudent(index);
+		
+		System.out.println(s.getName() + "학생 정보가 제거되었습니다.");
+	}
+
+
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
