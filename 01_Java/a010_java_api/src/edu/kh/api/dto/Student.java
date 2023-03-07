@@ -97,7 +97,7 @@ public class Student {
 		
 		// 비교를 위해 전달 받은 객체 Student가 맞는가?
 		// false인 경우 실행
-		if( !(obj instanceof Student) ) return false;
+		if( !(obj instanceof Student) ) return false;  
 		
 		// 필드 비교
 		Student other = (Student) obj; // obj 다운 캐스팅
