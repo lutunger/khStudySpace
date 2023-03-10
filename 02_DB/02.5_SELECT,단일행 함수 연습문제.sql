@@ -21,7 +21,8 @@ WHERE MOD(TO_NUMBER(EMP_ID, '999'), 2) = 1 ;
  * */
 SELECT * 
 FROM EMPLOYEE
-WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, HIRE_DATE)) >= 20 *12;
+--WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, HIRE_DATE)) >= 20 * 12;
+WHERE EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM HIRE_DATE) >= 20;
 
 
 /*
@@ -29,7 +30,11 @@ WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, HIRE_DATE)) >= 20 *12;
 단, 주민번호 9번째 자리부터 끝까지는 '*'문자로 채움
 예 : 홍길동 771120-1******
  * */
-SELECT EMP_NAME, (SUBSTR(EMP_NO, 0, 8) || '******' )주민등록번호 
+--SELECT EMP_NAME, (SUBSTR(EMP_NO, 0, 8) || '******' )주민등록번호 
+SELECT EMP_NAME, 
+	REPLACE(EMP_NO,SUBSTR(EMP_NO,9), '******') 주민등록번호,
+	(SUBSTR(EMP_NO, 0, 8) || '******' )주민등록번호,
+	RPAD(SUBSTR(EMP_NO, 1, 8), 14, '*') 주민등록번호
 FROM EMPLOYEE;
 
 /*5. EMPLOYEE 테이블에서 사원명, 직급코드, 연봉(원) 조회
@@ -43,11 +48,12 @@ FROM EMPLOYEE;
 부서코드가 D5, D9인 직원들 중에서 2004년도에 입사한 사원의
 사번 사원명 부서코드 입사일 조회
  * */
-
-SELECT EMP_ID , EMP_NAME, DEPT_CODE , HIRE_DATE 
+SELECT EMP_ID , EMP_NAME, DEPT_CODE , HIRE_DATE, TO_CHAR(HIRE_DATE, 'YYYY')
 FROM EMPLOYEE
 WHERE DEPT_CODE IN ('D5','D9')
 AND EXTRACT (YEAR FROM HIRE_DATE) = 2004; 
+--AND TO_CHAR(HIRE_DATE, 'YYYY') = '2004';
+
 
 /*7. EMPLOYEE 테이블에서 사원명, 입사일, 입사한 달의 근무일수 조회
 단, 입사한 날도 근무일수에 포함해서 +1 할 것
@@ -61,12 +67,19 @@ FROM EMPLOYEE;
 나이는 주민번호에서 추출해서 날짜데이터로 변환한 다음, 계산.
  * */
 SELECT EMP_NAME, DEPT_CODE, 
-(SUBSTR(EMP_NO, 0,2) || '년 ' 
-|| SUBSTR(EMP_NO, 3,2) || '월 ' 
-||SUBSTR(EMP_NO, 5,2) || '일' ) 생년월일,
---MONTHS_BETWEEN(EMP_NO, SYSDATE) "만 나이"
-FLOOR(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR(EMP_NO,0,6), 'RRMMDD'))/12) "주번 생년월일"
+	(SUBSTR(EMP_NO, 0,2) || '년 ' 
+	||SUBSTR(EMP_NO, 3,2) || '월 ' 
+	||SUBSTR(EMP_NO, 5,2) || '일' ) 생년월일,
+	
+	TO_CHAR((TO_DATE(SUBSTR(EMP_NO, 1, 6))), 'YY"년" MM"월" DD"일"') 생년월일,
+	
+--	FLOOR((SYSDATE- TO_DATE(SUBSTR(EMP_NO,1,6))) / 365) "만 나이", -- 윤년의 존재로 인해서 차이가 있을 수 있다
+	
+	FLOOR(MONTHS_BETWEEN(SYSDATE, TO_DATE(SUBSTR(EMP_NO,0,6), 'RRMMDD'))/12) "만 나이"
+	
 FROM EMPLOYEE;
 
 
 SELECT * FROM EMPLOYEE;
+
+
