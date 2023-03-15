@@ -103,7 +103,7 @@ FROM EMPLOYEE;
 SELECT ABS(10), ABS(-10) FROM DUAL;
 
 -- CEIL(숫자 | 컬럼명) : 올림
--- FLOR(숫자 | 컬럼명) : 내림
+-- FLOOR(숫자 | 컬럼명) : 내림
 --> 둘 다 소수점 첫째 자리에서 처리 -> 정수 결과 반환
 
 SELECT 123.5, CEIL(123.5), FLOOR(123.5) FROM DUAL;
@@ -139,6 +139,7 @@ FROM DUAL;
 
 SELECT FLOOR(-123.5), TRUNC(-123.5)
 FROM DUAL;
+
 
 SELECT EMP_NAME, TRUNC(SALARY, -6) || '원 이상' 급여
 FROM EMPLOYEE;
@@ -231,7 +232,7 @@ SELECT 10000000,
 FROM DUAL;
 
 -- EMPLOYEE 테이블에서
--- 사번, 이름, 연봉 조회(\100,000,000 형식으로 조회) --> \ = ₩
+-- 사번, 이름, 연봉 조회(₩100,000,000 형식으로 조회) 
 SELECT EMP_ID, EMP_NAME ,
 	TO_CHAR(SALARY * 12, 'L999,999,999') 연봉
 FROM EMPLOYEE;
