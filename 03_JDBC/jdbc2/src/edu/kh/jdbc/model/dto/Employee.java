@@ -20,7 +20,42 @@ public class Employee {
 	private double bonus; // 보너스
 	private int managerId; // 사수번호
 
-	public int getEmpId() {
+	public Employee() {};
+	
+	
+	/**
+	 * @param empId
+	 * @param empName
+	 * @param phone
+	 * @param departmentTitle
+	 * @param jobName
+	 */
+	public Employee(int empId, String empName, String phone, String departmentTitle, String jobName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.phone = phone;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+
+	
+	/**
+	 * @param empId
+	 * @param empName
+	 * @param jobName
+	 * @param salary
+	 */
+	public Employee(int empId, String empName, String jobName, int salary) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.jobName = jobName;
+		this.salary = salary;
+	}
+
+
+	public int getEmpId() { 
 		return empId;
 	}
 

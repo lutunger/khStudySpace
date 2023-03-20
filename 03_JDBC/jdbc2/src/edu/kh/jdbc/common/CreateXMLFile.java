@@ -1,6 +1,5 @@
 package edu.kh.jdbc.common;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Properties;
 import java.util.Scanner;
