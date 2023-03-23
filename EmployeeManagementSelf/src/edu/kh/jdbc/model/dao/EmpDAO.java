@@ -338,10 +338,11 @@ public class EmpDAO {
 //			
 //			rs = pstmt.executeQuery();
 //			
+//			rs.next();
 //			String fired = rs.getString(1);
 //			
 //			if(fired == "Y") {
-//				result = -1;
+//				result = 100;
 //			}
 //			
 //		} finally {
