@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import edu.kh.jdbc.model.dto.Emp;
 import edu.kh.jdbc.model.service.EmpService;
@@ -392,10 +393,40 @@ public class EmpView {
 		*/
 		
 		
-		// 서비스 호
-		List<Map<String, Object>> mapList = service.selectDepartment();
-		
-		
+		try {
+			// 서비스 호출
+			List<Map<String, Object>> mapList = service.selectDepartment();
+			
+			// 조회 결과 출력
+			
+			// List에서 요소를 하나씩 순차 접근
+			for(Map<String, Object> map : mapList) {
+				
+//				System.out.printf("%s / %d / %d \n ",
+//									map.get("deptTitle"),
+//									map.get("count"),
+//									map.get("avg")
+//									);
+				
+				
+				
+				// 위에게 더 많이 씀
+				// 아래건 이런게 있다~ 참고만~~
+				Set<String> set = map.keySet(); // Map에서 key만 얻어와 반환
+								// -> deptTitle, count, avg 순서
+				for(String key : set) {
+					System.out.print(map.get(key) + "  ");
+				}
+				
+				System.out.println(); // 줄바꿈
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("[부서별 통계 조회 중 예외 발생]");
+			e.printStackTrace();
+		}
 		
 	}
 	

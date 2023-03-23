@@ -313,7 +313,7 @@ public class EmpDAO {
 						+ "FROM EMPLOYEE\r\n"
 						+ "LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID)\r\n"
 						+ "GROUP BY DEPT_CODE, DEPT_TITLE\r\n"
-						+ "ORDER BY DEPT_CODE;";
+						+ "ORDER BY DEPT_CODE";
 			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
