@@ -23,6 +23,124 @@ public class Emp {
 	
 	public Emp() { }
 
+	
+	
+	/** selectAll DAO 에서 접근되어지는 emp 객체 정보 생성자
+	 * @param empId
+	 * @param empName
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param departmentTitle
+	 * @param jobName
+	 */
+	public Emp(int empId, String empName, String email, String phone, int salary, String departmentTitle,
+			String jobName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+	
+
+	/** selectRetire DAO 에서 접근되어지는 emp 객체 정보 생성자
+	 * @param empId
+	 * @param empName
+	 * @param email
+	 * @param phone
+	 * @param entDate
+	 */
+	public Emp(int empId, String empName, String email, String phone, String entDate) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.email = email;
+		this.phone = phone;
+		this.entDate = entDate;
+	}
+
+	
+	/** selectEmpId DAO 에서 접근되어지는 emp 객체 정보 생성자
+	 * @param empId
+	 * @param empName
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param hireDate
+	 * @param entYN
+	 * @param departmentTitle
+	 * @param jobName
+	 */
+	public Emp(int empId, String empName, String email, String phone, int salary, Date hireDate, String entYN,
+			String departmentTitle, String jobName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.hireDate = hireDate;
+		this.entYN = entYN;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+
+	
+	
+	
+
+	/** 사원 정보 추가(INSERT)에 담겨지는 정보를 담은 객체 생성자
+	 * @param empName
+	 * @param empNo
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param deptCode
+	 * @param jobCode
+	 * @param salLevel
+	 * @param bonus
+	 * @param managerId
+	 */
+	public Emp(String empName, String empNo, String email, String phone, int salary, String deptCode, String jobCode,
+			String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
+
+	
+	
+
+	/** 사번으로 사원 정보 수정을 하기위해 담겨지는 정보를 담기 위핸 객체 생성자
+	 * @param empId
+	 * @param email
+	 * @param phone
+	 * @param salary
+	 * @param bonus
+	 */
+	public Emp(int empId ,String email, String phone, int salary, double bonus) {
+		super();
+		this.empId = empId;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.bonus = bonus;
+	}
+
+
+
 	public int getEmpId() {
 		return empId;
 	}
