@@ -35,8 +35,13 @@ public class MemberDAO {
 		
 	}
 
+	/** 회원 목록 조회 SQL 수행
+	 * @param conn
+	 * @return memberList
+	 * @throws Exception
+	 */
 	public List<Member> SelectMemberList(Connection conn) throws Exception{
-		
+
 		List<Member> memberList = new ArrayList<>();
 		
 		try {
@@ -48,6 +53,7 @@ public class MemberDAO {
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
+				
 				Member member = new Member();
 				
 				member.setMemberId(rs.getString(1));
