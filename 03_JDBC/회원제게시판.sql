@@ -173,15 +173,33 @@ SELECT COUNT(*) FROM "COMMENT"
 WHERE BOARD_NO = 1;
 
 
+-------------------------------------------------------------------
+
+-- 로그인
+SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_GENDER, 
+	TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') ENROLL_DT
+FROM "MEMBER"
+WHERE MEMBER_ID = 'user01'
+AND MEMBER_PW = 'pass01'
+AND UNREGISTER_FL = 'N'
+;
+
+SELECT *
+FROM "MEMBER"
+WHERE MEMBER_ID = 'user01'
+AND MEMBER_PW = 'pass01'
+AND UNREGISTER_FL = 'N'
+;
+
+-- 비밀번호를 최대한 조회하지 말라고 한다.. 암호화 부분도 있고... 보안상의 이유가 큼
+-- 탈퇴여부, 비밀번호 뺀 나머지 정보를 조회하자.
 
 
-
-
-
-
-
-
-
+-- 탈퇴하지 않은 회원 중 아이디 중복 검사
+SELECT COUNT(*) FROM "MEMBER"
+WHERE UNREGISTER_FL = 'N'
+AND MEMBER_ID = 'user01'
+;
 
 
 

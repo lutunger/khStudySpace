@@ -325,30 +325,30 @@ public class EmpDAO {
 			
 			close(pstmt);
 		}
-//		
-//		try {
-//			
-//			String sql = "SELECT ENT_YN "
-//						+ "FROM EMPLOYEE "
-//						+ "WHERE EMP_ID = ?	";
-//			
-//			pstmt = conn.prepareStatement(sql);
-//			
-//			pstmt.setInt(1, input);
-//			
-//			rs = pstmt.executeQuery();
-//			
-//			rs.next();
-//			String fired = rs.getString(1);
-//			
-//			if(fired == "Y") {
-//				result = 100;
-//			}
-//			
-//		} finally {
-//			
-//			close(pstmt);
-//		}
+		
+		try {
+			
+			String sql = "SELECT ENT_YN "
+						+ "FROM EMPLOYEE "
+						+ "WHERE EMP_ID = ?	";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, input);
+			
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			String fired = rs.getString(1);
+			
+			if(fired == "Y") {
+				result = 100;
+			}
+			
+		} finally {
+			
+			close(pstmt);
+		}
 
 		return result;
 	}

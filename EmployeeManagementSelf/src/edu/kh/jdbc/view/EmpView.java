@@ -439,7 +439,7 @@ public class EmpView {
 		try {
 			int result = service.updateRetire(input);
 			
-			if(result > 0 ) {
+			if(result > 0 && result != 100) {
 				System.out.println("[퇴사처리 되었습니다]");
 			}else {
 				System.out.println("[사번이 일치하는 않거나, 이미 퇴직된 사원입니다.]");
