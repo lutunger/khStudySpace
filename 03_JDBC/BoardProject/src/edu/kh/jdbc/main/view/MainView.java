@@ -5,13 +5,17 @@ import java.util.Scanner;
 
 import edu.kh.jdbc.common.Session;
 import edu.kh.jdbc.main.model.service.MainService;
+import edu.kh.jdbc.member.view.MemberView;
 import edu.kh.jdbc.model.dto.Member;
 
 public class MainView {
 	
 	private Scanner sc = new Scanner(System.in);
+	
 	private MainService service = new MainService();
 	
+	// 회원 기능 화면 객체 생성
+	private MemberView memberView = new MemberView();
 	
 	/**
 	 * 메인 메뉴 출력
@@ -59,7 +63,7 @@ public class MainView {
 					sc.nextLine(); // 입력 버퍼 개행 문자 제거
 					
 					switch(input) {
-					case 1: break;
+					case 1: memberView.memberMenu(); break;
 					case 2: break;
 					case 3: 
 						System.out.println("\n=== 로그아웃 되었습니다 ===\n");

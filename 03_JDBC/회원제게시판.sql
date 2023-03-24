@@ -202,7 +202,16 @@ AND MEMBER_ID = 'user01'
 ;
 
 
-
+-- 회원 목록 조회(아이디, 이름, 성별(남/여) + 회원 번호 내림차순)
+SELECT MEMBER_ID , MEMBER_NM , 
+	CASE 
+		WHEN MEMBER_GENDER = 'F'
+		THEN '남'
+		ELSE '여'
+	END AS "성별(남/여)"
+FROM "MEMBER"
+WHERE UNREGISTER_FL = 'N'
+ORDER BY MEMBER_ID DESC;
 
 
 

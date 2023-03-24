@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import edu.kh.jdbc.model.dto.Member;
 
-public class MainDao {
+public class MainDAO {
 	
 	// 필드
 	// JDBC 객체 참조 변수
@@ -23,7 +23,7 @@ public class MainDao {
 	// - Map<String,String> 형태
 	// - XML 파일 입/출력 메서드를 제공
 	
-	public MainDao() { // 기본 생성자
+	public MainDAO() { // 기본 생성자
 		
 		// DAO 객체가 생성될 때 XML 파일을 읽어와 Properties 객체에 저장
 		try {
@@ -142,7 +142,7 @@ public class MainDao {
 	/** 회원 가입 SQL 수행(INSERT)
 	 * @param conn
 	 * @param member
-	 * @return
+	 * @return result
 	 * @throws Exception
 	 */
 	public int signUp(Connection conn, Member member) throws Exception{

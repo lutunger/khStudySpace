@@ -5,12 +5,12 @@ import static edu.kh.jdbc.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import edu.kh.jdbc.main.model.dao.MainDao;
+import edu.kh.jdbc.main.model.dao.MainDAO;
 import edu.kh.jdbc.model.dto.Member;
 
 public class MainService {
 	
-	private MainDao dao = new MainDao();
+	private MainDAO dao = new MainDAO();
 	
 	
 	/** 로그인 서비스
