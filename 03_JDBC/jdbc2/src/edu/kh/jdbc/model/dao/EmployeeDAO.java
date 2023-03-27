@@ -177,6 +177,7 @@ public class EmployeeDAO {
 				empList.add(new Employee(empId, empName, phone, departmentName, jobName));
 			}
 			
+			
 		}finally {
 			close(rs);
 			close(stmt);
@@ -185,7 +186,8 @@ public class EmployeeDAO {
 		return empList;
 	}
 
-
+	
+	
 	/**  급여 범위 조회 SQL 수행 후 결과 반환 메서드
 	 * @param conn
 	 * @param min

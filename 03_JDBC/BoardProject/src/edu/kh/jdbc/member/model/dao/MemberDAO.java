@@ -74,6 +74,86 @@ public class MemberDAO {
 		
 		return memberList;
 	}
+
+	public int updateMember(Connection conn, String memberName, 
+							String memberGender, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateInfo");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberGender);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	public int updatePassword(Connection conn, String curPass, String newPass, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updatePassword");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, newPass);
+			
+			pstmt.setInt(2, memberNo);
+			
+			pstmt.setString(3, curPass);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+		}
+		
+		
+		
+		return result;
+	}
+
+	public int unRegisterMember(Connection conn, String memberPw, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("unRegisterMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
 		
 }
 

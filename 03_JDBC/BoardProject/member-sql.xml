@@ -17,6 +17,28 @@
 		ORDER BY MEMBER_ID DESC
 	</entry>
 	
+	<!-- 내 정보 수정(이름, 성별) -->
+	<entry key = "updateInfo">
+		UPDATE "MEMBER"
+		SET MEMBER_NM = ?,
+			MEMBER_GENDER = ?
+		WHERE MEMBER_NO = ?
+	</entry>	
+	
+	<!-- 패스워드 수정하기 -->
+	<entry key = "updatePassword">
+		UPDATE "MEMBER"
+		SET MEMBER_PW = ?
+		WHERE MEMBER_NO = ?
+		AND	MEMBER_PW = ?
+	</entry>
+	
+	<!-- 회원탈퇴 -->
+	<entry key = "unRegisterMember">
+		UPDATE "MEMBER"
+		SET UNREGISTER_FL = 'Y'
+		WHERE MEMBER_NO = ?
+	</entry>
 	
 </properties>
 
