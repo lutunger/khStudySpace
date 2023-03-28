@@ -90,6 +90,12 @@ public class MemberService {
 		return code.toString();
 	}
 
+	/** 회원 탈퇴 서비스
+	 * @param memberPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
 	public int unRegisterMember(String memberPw, int memberNo) throws Exception{
 		
 		Connection conn = getConnection();
