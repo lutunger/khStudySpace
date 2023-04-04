@@ -40,9 +40,15 @@
 }
 
 /* #test6의 후손 중 10번만 선택 */
-/* #test6 > li:nth-of-type(5) > span{ */
-/* #test6 > li:last-of-type > span{ */
-/* #test6 > li:nth-last-child(3) > span{ */
+/* #test6 > li:nth-of-type(5) > span{
+    background-color: yellow;
+} */
+/* #test6 > li:last-of-type > span{
+    background-color: yellow;
+} */
+/* #test6 > li:nth-last-child(3) > span{
+    background-color: yellow;
+} */
 #test6>li:nth-last-of-type(1) > span{
     background-color: yellow;
 }
