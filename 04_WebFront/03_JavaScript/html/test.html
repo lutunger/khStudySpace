@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         .container{ display: flex; }
+        .container, .container *{ box-sizing: border-box; }
+        .container > div{ width: 200px; }
+
+        .box{
+            width: 100%;
+            height: 200px;
+            border: 1px solid black;
+            transition-duration: 0.5s;
+        }
+
+        .color{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="box"></div>
+            <input type="text" class="color">
+        </div>
+        <div>
+            <div class="box"></div>
+            <input type="text" class="color">
+        </div>
+        <div>
+            <div class="box"></div>
+            <input type="text" class="color">
+        </div>
+        <div>
+            <div class="box"></div>
+            <input type="text" class="color">
+        </div>
+        <div>
+            <div class="box"></div>
+            <input type="text" class="color">
+        </div>
+    </div>
+
+    <script>
+        const boxList = document.getElementsByClassName("box");
+        const colorList = document.getElementsByClassName("color");
+
+        for(/* var */let i = 0; i < boxList.length; i++){
+            colorList[i].addEventListener('keyup', function(){
+                boxList[i].style.backgroundColor = colorList[i].value;
+            }); 
+}   
+    /* 
+    var 와 let의 차이
+
+    var가 문제가 많아서 
+    es6부터 사장되었다는 모양이다..
+
+    let권장...
+
+    var보다는 let을 써야되지 싶다.
+
+    브라우저에서 지원을 안하는 듯 싶다...
+    */
+    </script>
+    
+</body>
+</html>
