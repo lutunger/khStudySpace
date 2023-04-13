@@ -63,3 +63,38 @@ let time = setInterval(currentTime , 1000);
 document.getElementById("stop").addEventListener("click", () => {
     clearInterval(time);
 });
+
+
+
+// 팝업창 열기
+const openPopup1 = document.getElementById("openPopup1");
+const openPopup2 = document.getElementById("openPopup2");
+const openPopup3 = document.getElementById("openPopup3");
+
+openPopup1.addEventListener("click", () => {
+    // window.open(url);
+    window.open("07_함수.html"); // 새 탭에서 열기
+                // 파일 경로X -> 브라우저에 보이는 주소
+});
+
+openPopup2.addEventListener("click", () => {
+    // 새창에서 최소한의 팝업창 요건을 가진 상태로 열기
+    // window.open("url", "_blank", "popup");
+    
+    window.open("07_함수.html", "_blank", "popup");
+});
+
+openPopup3.addEventListener("click", () => {
+    // 새창의 크기를 너비 400px, 높이 600px로 지정
+    // 열리는 위치는 위에서 100px, 오른쪽에서 100px 떨어진 위치에서 열기
+    
+    window.open("07_함수.html", "_blank", 
+            "width=400, height=600, top=100, left=100");
+});
+
+
+
+// 팝업창으로 값 전달하기
+document.getElementById("sendPopup").addEventListener("click", () => {
+    window.open("09_팝업.html", "popupWindow", "width=300 , height=300");
+});

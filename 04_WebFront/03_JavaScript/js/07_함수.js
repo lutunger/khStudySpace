@@ -73,7 +73,11 @@ console.log(str); // 전역 변수
 // 익명 함수 : function(){}
 // 화살표 함수 : () => {}
 
-document.querySelector("#button1").addEventListener("click", () => {
+// document.querySelector("#button1").addEventListener("click", function(e){
+//     e.target.style.backgroundColor = "pink";
+// });
+
+document.querySelector("#button1").addEventListener("click", (e) => {
     e.target.style.backgroundColor = "pink";
 });
 
