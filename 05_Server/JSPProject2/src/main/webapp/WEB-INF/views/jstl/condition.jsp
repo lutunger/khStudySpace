@@ -52,7 +52,52 @@
     </c:if>
     
 
+    <hr>
 
+
+    <h1>5. 조건문 - choose, when, otherwise (if ~ else if ~ else) </h1>
+
+    <pre>
+        choose : when, otherwise 태그를 감싸는 태그
+                (이 안에 if ~ else if ~ else 를 쓰겠다)
+
+        when : if, else if 역할의 태그
+                속성은 test 밖에 없음
+
+        otherwise(그렇지 않으면) : else 역할, 속성 X ,, 이도저도 아니면 나머지~의 뉘양스라서
+    </pre>
+
+    <%-- queryString : 주소에 작성된 파라미터 문자열  --%>
+
+    <%-- http://localhost/jstl/condition?val=500 
+        queryString 바꿔가면서 테스트
+    --%>
+
+    <%-- ${param.val} --%>
+
+    <%--  
+        lt (little) : < 미만
+        gt (greater) : > 초과
+
+        le(little or equal) : <= 이하
+        ge(greater or equal) : >= 이상
+
+    --%>
+
+    <c:choose>
+        <%-- <c:when test="${param.val > 100}"> 문법인식이 이상한거 뿐.. 에러가 나는건 아님 --%>
+        <c:when test="${param.val gt 100}"> 
+            100 초과
+        </c:when>
+
+        <c:when test="${param.val < 100}" >
+            100 미만
+        </c:when>
+    
+        <c:otherwise>
+            100과 같다
+        </c:otherwise>
+    </c:choose>
     
 </body>
 </html>

@@ -30,10 +30,19 @@
 </head>
 <body> 
     <br>
-                                    <%-- choose(case와 비슷), when, then은 한 세트 --%>
-    <a href="condition">JSTL을 이용한 조건문(if, choose, when, then)</a>
+                                    <%-- choose(case와 비슷), when, otherwise은 한 세트 --%>
+    <a href="condition">JSTL을 이용한 조건문(if, choose, when, otherwise)</a>
+
     <br>
-    <a href="#">JSTL을 이용한 반복문(forEach)</a>
+
+    <a href="loop">JSTL을 이용한 반복문(forEach)</a>
+
+    <br>
+
+    <h3><a href="student/selectAll">workbook에서 학생 전체 조회하기</a></h3>
+
+
+
 
 
     <h1>JSTL(Jsp Standard Tag Library, JSP 표준 태그 라이브러리)</h1>
