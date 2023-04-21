@@ -22,7 +22,7 @@
         <%= request.getParameter("introduction") %>
     </p>
 		
-     <% } %>
+    <% } %>
 	
 </body>
 </html>
