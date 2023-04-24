@@ -61,14 +61,14 @@ public class MemberDAO {
 				
 				loginMember = new Member();
 				
-	            loginMember.setMemberNo(       rs.getInt(1) );
-	            loginMember.setMemberEmail(    rs.getString(2));
-	            loginMember.setMemberNickname(   rs.getString(3));
-	            loginMember.setMemberTel(      rs.getString(4));
-	            loginMember.setMemberAddress(   rs.getString(5));
-	            loginMember.setProfileImage(   rs.getString(6));
-	            loginMember.setAuthority(      rs.getInt(7));
-	            loginMember.setEnrollDate(      rs.getString(8));
+				loginMember.setMemberNo(       rs.getInt(1) );
+				loginMember.setMemberEmail(    rs.getString(2));
+				loginMember.setMemberNickname(   rs.getString(3));
+				loginMember.setMemberTel(      rs.getString(4));
+				loginMember.setMemberAddress(   rs.getString(5));
+				loginMember.setProfileImage(   rs.getString(6));
+				loginMember.setAuthority(      rs.getInt(7));
+				loginMember.setEnrollDate(      rs.getString(8));
 				
 			}
 			
