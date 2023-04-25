@@ -19,5 +19,6 @@ Servers
 *.tar.gz
 *.rar
 
-과제/04_배열_종합실습문제.pdf
-01_Java/a008_polymorphism/src/module-info.java
+# Spring 관련 폴더, 파일
+target
+/target/
