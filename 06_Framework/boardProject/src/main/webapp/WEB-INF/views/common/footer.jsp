@@ -20,7 +20,7 @@
 
     <%-- session에 message가 존재할 경우 --%>
     <%-- not empty : 비어있지 않을 경우 true --%>
-    <c:if test="${not empty sessionScope.message}" >
+    <c:if test="${not empty message}" >
 
         <script>
             // ${message} == 아이디 또는 비밀번호가 일치하지 않습니다.
@@ -28,15 +28,6 @@
             // EL/JSTL 구문이 먼저 해석되는데 
             // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야 한다!!!
             alert('${message}');
-
-            /*  
-                session에 message를 추가하면
-                브라우저 종료 또는 만료 전까지 계속 메세지가 출력된다
-                -> 1회 출력 후 session에서 message 삭제
-            */
-
-            <c:remove var="message" scope="session"/>
-            
 
         </script>
 
