@@ -325,11 +325,16 @@ public class MemberContorller {
 	
 	// 회원 가입 진행
 	@PostMapping("/signUp")
-	public String signUp(Member inputMember, String[] memberAddress) {
+	public String signUp(Member inputMember
+						, String[] memberAddress
+						, RedirectAttributes ra) {
 		
 		// -------------- 매개 변수 설명 ----------------
 		// Member inputMember : 커맨드 객체(제출된 파라미터가 저장된 객체)
 		
+		// String[] memberAddress : input name = "memberAddress" 3개가 저장된 배열
+		
+		// RedirectAttributes ra : 리다이렉트 시 데이터를 request scope로 전달하는 객체
 		
 		// -------------- --------------- ----------------
 		
@@ -356,17 +361,34 @@ public class MemberContorller {
 			
 		}
 		
-		// 가입 성공 여부에 따라 주소 결정
-		String path = "redirect:";
 		
 		// 회원 가입 서비스 호출
 		// (DB에 DML 수행 시 성공 행의 개수(int형) 반환)
 		int result = service.signUp(inputMember);
 		
+		// 가입 성공 여부에 따라 주소 결정
+		String path = "redirect:";
+		String message = null;
+
+		
+		if(result > 0) { // 가입 성공
+			path += "/"; // 메인 페이지
+			
+			message = inputMember.getMemberNickname() + "님의 가입을 환영합니다.";
+			
+		} else { // 가입 실패
+			// 회원 가입 페이지
+//			path += "/member/signUp";	// 절대 경로
+			path += "signUp"; 			// 상대 경로
+			
+			message = "회원 가입 실패!";
+		}
+		
+		// 리다이렉트 시 session에 잠깐 올라갔다 내려오도록 세팅
+		ra.addFlashAttribute("message", message);
+		
 		return path;
 	}
-	
-	
 	
 	
 	
