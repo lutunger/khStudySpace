@@ -98,6 +98,7 @@ MEMBER_PW = '$2a$10$nmg2OPzX6zmIidprlt/KGuoymXmtiYpnNavjhlaBOBq9wxsECQL/C'
 
 COMMIT;
 
+SELECT * FROM "MEMBER";
 
 
 

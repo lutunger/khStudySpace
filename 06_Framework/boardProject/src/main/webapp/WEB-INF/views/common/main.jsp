@@ -91,9 +91,9 @@
                             </label>
 
                             <article class="signup-find-area">
-                                <a href="#">친구되기</a>
+                                <a href="/member/signUp">회원가입</a>
                                 <span>|</span>
-                                <a href="#">나 친구맞아! 나 몰라?</a>
+                                <a href="#">id/pw찾기</a>
                             </article>
 
                         </form>
