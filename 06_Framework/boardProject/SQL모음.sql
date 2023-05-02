@@ -93,12 +93,17 @@ AND MEMBER_PW = 'pass01!'
 
 -- user01의 비밀번호 변경
 UPDATE "MEMBER" SET 
-MEMBER_PW = '$2a$10$nmg2OPzX6zmIidprlt/KGuoymXmtiYpnNavjhlaBOBq9wxsECQL/C'
+MEMBER_PW = '$2a$10$2ytpVwpNJETRAomRB8BH7OorpK3OHlcCw3ji9Lh5OxwX1bbIe6eT6' -- password
 ;
 
 COMMIT;
 
 SELECT * FROM "MEMBER";
+
+-- 주소 정정
+UPDATE MEMBER
+SET MEMBER_ADDR = REPLACE(MEMBER_ADDR, ',,', '^^^')
+WHERE INSTR(MEMBER_ADDR, ',,') > 0;
 
 -- 회원 정보 수정
 UPDATE "MEMBER" SET
@@ -128,7 +133,14 @@ WHERE MEMBER_NO = #{memberNo}
 ;
 
 
+-- 전체 탈퇴 복구
+UPDATE "MEMBER" SET MEMBER_DEL_FL = 'N';
+COMMIT;
 
-
+-- 이메일 중복 검사
+SELECT COUNT(*) FROM "MEMBER"
+WHERE MEMBER_EMAIL = 'user01@kh.or.kr'
+AND MEMBER_DEL_FL = 'N'
+;
 
 
