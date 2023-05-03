@@ -112,7 +112,7 @@ public class MemberContorller {
 	
 //	@PostMapping("/login")
 	public String login(/* @ModelAttribute */ Member inputMember ) {
-		
+			
 		// 파라미터 전달 방법 3 : @ModelAttribute를 이용한 방법
 		
 		// - DTO(또는 VO)와 같이 사용하는 어노테이션
