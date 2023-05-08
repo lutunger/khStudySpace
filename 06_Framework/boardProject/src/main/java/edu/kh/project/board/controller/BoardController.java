@@ -1,10 +1,14 @@
 package edu.kh.project.board.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import edu.kh.project.board.model.service.BoardService;
@@ -28,6 +32,7 @@ public class BoardController {
 	
 	// @PathVariable
 	// URL 경로에 있는 값을 매개 변수로 이용할 수 있게하는 어노테이션
+	// + request scope에 세팅
 	
 	// @PathVariable을 사용하는 경우
 	// - 자원(resource) 구분/식별
@@ -54,14 +59,17 @@ public class BoardController {
 	@GetMapping("/{boardCode}")
 	public String selectBoardList(
 			@PathVariable("boardCode") int boardCode
-			
-			) {
+			, @RequestParam(value="cp", required=false, defaultValue="1") int cp
+			, Model model) {
 		
 		// boardCode 확인
 		// System.out.println("boardCode: " + boardCode);
 		
 		// 게시글 목록 조회 서비스 호출
+		Map<String, Object> map = service.selectBoardList(boardCode, cp);
 		
+		// 조회 결과를 request scope에 세팅 후 forward
+		model.addAttribute("map", map);
 		
 		return "board/boardList";
 	}
