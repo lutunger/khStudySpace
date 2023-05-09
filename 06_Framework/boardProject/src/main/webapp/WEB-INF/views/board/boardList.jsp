@@ -80,7 +80,7 @@
                                             </c:if>
 
                                             <%-- ${boardCode} :  @Pathvariable로 request scope에 추가된 값 --%>
-                                            <a href="/board/${boardCode}/${board.boardNo}">${board.boardTitle}</a>   
+                                            <a href="/board/${boardCode}/${board.boardNo}?cp=${pagination.currentPage}">${board.boardTitle}</a>   
                                             [${board.commentCount}]                        
                                         </td>
                                         <td>${board.memberNickname}</td>
