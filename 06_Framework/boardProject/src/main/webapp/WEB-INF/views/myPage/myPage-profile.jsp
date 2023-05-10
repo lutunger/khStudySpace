@@ -31,7 +31,7 @@
                 <h1 class="myPage-title">프로필</h1>
                 <span class="myPage-subject">프로필 이미지를 변경할 수 있습니다.</span>
 
-                <form aciont="profile" method="POST" name="myPageFrm">
+                <form action="profile" method="POST" name="myPageFrm">
 
                     <div class="profile-image-area">
 
@@ -67,6 +67,8 @@
     </main>
 
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+
+    <script src="/resources/js/myPage/myPage.js"></script>
 
 </body>
 </html>
