@@ -98,7 +98,7 @@
                                     <input type="text" name="memberEmail" 
                                     placeholder="이메일" autocomplete="off" value="${cookie.saveId.value}">
                                     <input type="password" name="memberPw" placeholder="비밀번호">
-                                </section>
+                                </section>      
                                 <section>
                                     <button>로그인</button>
                                 </section>
