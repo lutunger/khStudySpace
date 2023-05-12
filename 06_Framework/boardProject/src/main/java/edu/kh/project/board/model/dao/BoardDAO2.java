@@ -80,6 +80,12 @@ public class BoardDAO2 {
 		return sqlSession.insert("boardMapper.imageInsert", img);
 	}
 
+
+
+	public int deleteBoard(Map<String, Object> map) {
+		return sqlSession.update("boardMapper.deleteBoard", map);
+	}
+
 }
 
 

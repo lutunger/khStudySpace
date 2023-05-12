@@ -245,6 +245,12 @@ public class BoardServiceImpl2 implements BoardService2{
 		return rowCount;
 	}
 
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int deleteBoard(Map<String, Object> map) {
+		return dao.deleteBoard(map);
+	}
+
 }
 
 

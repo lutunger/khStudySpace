@@ -40,5 +40,6 @@ public interface BoardService {
 	 * @return result
 	 */
 	int updateReadCount(int boardNo);
+
 	
 }
