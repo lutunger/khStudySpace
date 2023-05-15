@@ -73,7 +73,7 @@ document.getElementById("updateBtn").addEventListener("click", () => {
 
 
 // 게시글 삭제 버튼이 클릭 되었을 때
-document.getElementById("deleteBtn")/addEventListener("click", () => {
+document.getElementById("deleteBtn").addEventListener("click", () => {
 
     if(confirm("정말 삭제 하시겠습니까?")){
         location.href 
