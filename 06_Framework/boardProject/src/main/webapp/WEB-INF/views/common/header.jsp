@@ -5,6 +5,8 @@
 
 <!-- font awesome 라이브러리 추가 + key 등록 -->
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+<script src="/resources/js/header.js"></script>
+
 
 <header>
     <section>
@@ -28,7 +30,7 @@
                 - POST  : input태그 값을 주소에 담지 않고 제출(주소에 안보임)
                         -> HTTP Body에 담아서 제출
             -->
-            <form action="#" method="GET">
+            <form action="/board/1" method="GET">
                 
                 <fieldset> <!-- form태그 내 영역 구분 -->
                     
@@ -40,7 +42,9 @@
                     -->
                     <input type="search" name="query" id="query"
                     placeholder="뽀로로한테 시켜봐요!"
-                    autocomplete="off">
+                    autocomplete="off" value="${param.query}">
+
+                    <input type="hidden" name="key" value="t"> <%-- 제목 검색만 --%>
 
                     <!-- 검색 버튼 -->
                     <!-- button type="submit" 이 기본값 -->
@@ -48,6 +52,8 @@
                 </fieldset>
 
             </form>
+
+            <ul id="searchResult" class="close"></ul>
 
         </article>
 
