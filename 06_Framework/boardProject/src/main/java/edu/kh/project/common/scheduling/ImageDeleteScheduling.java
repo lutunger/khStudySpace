@@ -36,8 +36,8 @@ public class ImageDeleteScheduling {
 	/* 년도 생략 가능 */
 	/* * == all */
 	// cron="초 분 시 일 월 요일 [년도]"
-	@Scheduled(cron = "0,10,20,30,40,50 * * * * *") // 매 분 0초, 30초 마다 -> test용
-//	@Scheduled(cron = "0 0 * * * *") // 매 정시( *시 0분 0초)
+//	@Scheduled(cron = "0,10,20,30,40,50 * * * * *") // 매 분 0초, 30초 마다 -> test용
+	@Scheduled(cron = "0 0 * * * *") // 매 정시( *시 0분 0초)
 	public void test() {
 		// System.out.println("스케쥴러가 일정 시간마다 자동으로 출력");
 
@@ -68,57 +68,55 @@ public class ImageDeleteScheduling {
 
 		// 3) DB 파일 목록 조회
 		List<String> dbImageList = service.selectImageList();
-		
+
 //		// 확인 (임시)
 //		for(String s : dbImageList) {
 //			System.out.println(s);
 //		}
-		
+
 		// 4) 서버, DB 모두 파일 목록이 있을 경우에 비교 시작
-				/* 논리 부정 연산자 */
-		if( !serverImageList.isEmpty() ) {
-			
-			// 5) 서버 파일 목록을 순차 접근 
-			for(File server : serverImageList) {
-				
-				// 6) 서버에 존재하는 파일이 
+		/* 논리 부정 연산자 */
+		if (!serverImageList.isEmpty()) {
+
+			// 5) 서버 파일 목록을 순차 접근
+			for (File server : serverImageList) {
+
+				// 6) 서버에 존재하는 파일이
 				// DB(dbImageList)에 없다면 삭제
-				
-				//C:\work_space\06_Framework\boardProject\src\main\webapp\resources\images\board\이미지명
+
+				// C:\work_space\06_Framework\boardProject\src\main\webapp\resources\images\board\이미지명
 				// 이 주소에 어떻게 접근하고 내가 원하는 데이터만 뽑아낼 것인가?
-				
+
 				// 방법은 여러가지
-				
-				String[] temp = server.toString().split("\\");
-				String s = temp[temp.length-1];
-				
-				System.out.println(Arrays.toString(temp));
-				
-				System.out.println(temp.toString());
-				System.out.println();
-				
-				//System.out.println( server.getName() );
-				
-				// List.indexOf(객체) = 객체가 List에 있으면 해당 인덱스 반환
-				//						없으면 -1 반환
-//				if( dbImageList.indexOf( server.getName() ) == -1) {
-//				//	db파일목록				서버 파일 이름 == -1 (없음)
-//					
-//					System.out.println(server.getName() + " 삭제");
-//					server.delete(); // File.delete() : 파일 학제
-//					
-//				}
+
+//				String[] temp = server.toString().split("\\");
+//				String s = temp[temp.length-1];
 //				
-//			} // for문 종료
-//			
-//			System.out.println("----- 이미지 파일 삭제 스케쥴러 종료 -----");
-//			
+//				System.out.println(Arrays.toString(temp));
+
+//				System.out.println(temp.toString());
+//				System.out.println();
+
+				// System.out.println( server.getName() );
+
+				// List.indexOf(객체) = 객체가 List에 있으면 해당 인덱스 반환
+				// 없으면 -1 반환
+				if (dbImageList.indexOf(server.getName()) == -1) {
+					// db파일목록 서버 파일 이름 == -1 (없음)
+
+					System.out.println(server.getName() + " 삭제");
+					server.delete(); // File.delete() : 파일 학제
+
+				}
+
+			} // for문 종료
+
+			System.out.println("----- 이미지 파일 삭제 스케쥴러 종료 -----");
+
 		}
-			
 
 	}
 
-	}
 }
 
 /*
