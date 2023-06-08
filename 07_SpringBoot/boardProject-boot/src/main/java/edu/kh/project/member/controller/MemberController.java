@@ -147,17 +147,4 @@ public class MemberController {
 		return path;
 	}
 
-	// 현재 클래스에서 발생하는 모든 예외를 모아서 처리
-	// @ExceptionHandler(Exception.class)
-	public String exceptionHandler(Exception e, Model model) {
-
-		// Exception e : 예외 정보를 담고있는 객체
-		// Model model : 데이터 전달용 객체 (request scope가 기본)
-
-		e.printStackTrace(); // 예외 내용/발생 메서드 확인
-
-		model.addAttribute("e", e);
-
-		return "common/error";
-	}
 }
