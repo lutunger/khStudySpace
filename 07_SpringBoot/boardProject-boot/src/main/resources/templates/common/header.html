@@ -99,15 +99,29 @@
 </header>
 
 <nav>
-    <ul>
+<!--     <ul>
         <li><a href="#">공지사항</a></li>
         <li><a href="#">자유 게시판</a></li>
         <li><a href="#">질문 게시판</a></li>
         <li><a href="#">FAQ</a></li>
         <li><a href="#">1:1문의</a></li>
 
-        <li>
-            <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+    </ul> -->
+
+    <!-- interceptor를 이용해서 조회된 boardTypeList를
+        application scope에서 얻어와 화면에 출력    -->
+
+    <ul>
+        <li th:each="boardType : ${application.boardTypeList}">
+
+            <a th:href="@{/board/{boardCode}(boardCode=${boardType.BOARD_CODE})}" 
+                th:text="${boardType.BOARD_NAME}">게시판 이름</a>
+            <!-- 이게 정석이다. -->
+
+                                    <!-- 텍스트 랜더링을 활용한 방법 -->
+            <!-- <a th:href="|/board/${boardType.BOARD_CODE}|"
+                th:text="${boardType.BOARD_NAME}">게시판 이름</a> -->
+
         </li>
 
 
