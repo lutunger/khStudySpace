@@ -98,7 +98,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	// 조회 수 증가 서비스
-		
+    @Transactional(rollbackFor = Exception.class)
 	@Override
 	public int updateReadCount(int boardNo) {
 		return mapper.updateReadCount(boardNo);

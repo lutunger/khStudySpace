@@ -39,8 +39,7 @@
                     <span class="like-area">
 
                         <!-- th:classappend : 클래스 추가 -->                        
-                        <i th:if="${likeCheck}" class="fa-heart" 
-                        th:classappend="${likeCheck} ? fa-solid : fa-regular" id="boardLike"></i>
+                        <i class="fa-heart" th:classappend="${likeCheck} ? fa-solid : fa-regular" id="boardLike"></i>
                         <!-- 조건 체크 ? 참 : 거짓 -->
 
                         <span th:text="*{likeCount}">좋아요 갯수</span>
