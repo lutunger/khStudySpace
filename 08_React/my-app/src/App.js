@@ -9,6 +9,7 @@ import PropsEx from './components/R01_props1';
 import State1 from './components/R02_state1';
 import State2 from './components/R03_state2';
 import State3 from './components/R04_state3';
+import TodoList1 from './components/R05_todolist1';
 
 
 function App() {
@@ -33,16 +34,18 @@ function App() {
       {/* <PropsEx name={'박공부'} age={22} /> */}
 
       {/* R02_state1 */}
-      <State1 />
+      {/* <State1 /> */}
 
       {/* R03_state2 */}
-      <State2 init={100}/>
+      {/* <State2 init={100}/> */}
 
       {/* R04_state3 */}
-      <hr/>
-      <State3 />
+      {/* <hr/> */}
+      {/* <State3 /> */}
 
-      
+      {/* R05_todoList1 */}
+      <TodoList1/>
+
     </>
   );
 }
