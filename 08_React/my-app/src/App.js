@@ -44,10 +44,10 @@ function App() {
       {/* <State3 /> */}
 
       {/* R05_todoList1 */}
-      {/* <TodoList1/> */}
+      <TodoList1/>
 
       {/* R06_context_api */}
-      <ContextAPI/>
+      {/* <ContextAPI/> */}
 
     </>
   );

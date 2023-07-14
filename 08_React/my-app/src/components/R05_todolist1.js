@@ -10,7 +10,7 @@ const InputName = () => {
     const [name, setName] = useState('');
     // name : 변수명
     // setName : name 변수의 setter
-    // userState('') : name 변수에 대입되는 초기값을 ''(빈칸)으로 지정
+    // useState('') : name 변수에 대입되는 초기값을 ''(빈칸)으로 지정
 
     return (
         <div>
